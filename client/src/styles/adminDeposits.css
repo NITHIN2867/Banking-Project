@@ -1,0 +1,93 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+
+.deposits-modern {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 6rem 3vw 3vw 3vw;
+}
+
+.deposits-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #232946;
+  margin-bottom: 5rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.deposits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+}
+
+
+
+.deposit-card {
+  background: linear-gradient(135deg, #e0eafc 60%, #f7faff 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(58, 104, 255, 0.10);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.2rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.deposit-card:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 180, 0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.deposit-card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+
+.deposit-label {
+  font-weight: 600;
+  color: #6c63ff;
+  margin-right: 0.3rem;
+}
+
+.deposit-card-section p {
+  font-size: 1.08rem;
+  margin: 0;
+  color: #232946;
+  font-family: 'Inter', Arial, sans-serif;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .deposits-modern {
+    padding-top: 3.5rem;
+  }
+  .deposits-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .deposits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .deposit-card {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem 1rem;
+  }
+}

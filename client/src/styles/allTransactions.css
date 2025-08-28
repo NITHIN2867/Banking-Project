@@ -1,0 +1,81 @@
+
+.all-transactions-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 13vh;
+  padding-left: 3vw;
+  background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.all-transactions-page h2 {
+  margin-bottom: 3vh;
+  color: #345678;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.transactions-grid {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.transaction-card {
+  background: linear-gradient(135deg, #e0eafc 60%, #f7faff 100%);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(58, 104, 255, 0.10);
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  min-height: 120px;
+  width: 100%;
+}
+.transaction-card:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 180, 0.16);
+  transform: translateY(-2px) scale(1.02);
+  z-index: 2;
+}
+.transaction-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.transaction-amount {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #6c63ff;
+}
+.transaction-method {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #232946;
+}
+.transaction-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.transaction-info {
+  font-size: 1.05rem;
+  color: #232946;
+  display: flex;
+  gap: 0.5rem;
+}
+.transaction-label {
+  font-weight: 600;
+  color: #6c63ff;
+  margin-right: 0.3rem;
+}
+

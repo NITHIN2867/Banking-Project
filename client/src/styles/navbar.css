@@ -1,0 +1,133 @@
+/* ===== NAVBAR STYLES ===== */
+.navbar {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #1a1a2e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #16213e;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+.nav-options {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0;
+  color: #e8e8e8;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-item:hover {
+  color: #ffffff;
+  background: #16213e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item:hover::before {
+  left: 100%;
+}
+
+.nav-item:active {
+  transform: translateY(0);
+}
+
+.logout-btn {
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  color: #dc3545;
+}
+
+.logout-btn:hover {
+  background: rgba(220, 53, 69, 0.2);
+  color: #ffffff;
+  border-color: rgba(220, 53, 69, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 2rem;
+    height: 65px;
+  }
+  
+  .brand-title {
+    font-size: 1.3rem;
+  }
+  
+  .nav-options {
+    gap: 1rem;
+  }
+  
+  .nav-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 1.5rem;
+    height: 60px;
+  }
+  
+  .brand-title {
+    font-size: 1.2rem;
+  }
+  
+  .nav-options {
+    gap: 0.8rem;
+  }
+  
+  .nav-item {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

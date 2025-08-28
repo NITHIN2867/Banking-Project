@@ -1,0 +1,152 @@
+.loans-page{
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 13vh;
+    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.loans{
+    width: 60%;
+    height: 85vh;
+    margin-right: 5vw;
+    
+    padding-left: 3vw;
+
+}
+.loans h2{
+
+    color: rgba(50, 89, 116, 0.893);
+    margin-bottom: 5vh;
+}
+
+
+.loans-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+}
+.loan-card {
+  background: linear-gradient(135deg, #e0eafc 60%, #f7faff 100%);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(58, 104, 255, 0.10);
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  max-width: 400px;
+  min-height: 120px;
+  width: 100%;
+}
+.loan-card:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 180, 0.16);
+  transform: translateY(-2px) scale(1.02);
+  z-index: 2;
+}
+.loan-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.loan-type {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #6c63ff;
+}
+.loan-amount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #232946;
+}
+.loan-card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.loan-info {
+  font-size: 1.05rem;
+  color: #232946;
+  display: flex;
+  gap: 0.5rem;
+}
+.loan-label {
+  font-weight: 600;
+  color: #6c63ff;
+  margin-right: 0.3rem;
+}
+.loan-status-pending {
+  color: #e57373;
+  font-weight: 600;
+}
+
+
+
+.loan-requests-container{
+
+    width: 35%;
+    height: 85vh;
+    padding-right: 2vw;
+}
+
+.loan-requests-container h3{
+
+    margin-bottom: 4vh;
+    color: rgba(40, 94, 117, 0.947);
+}
+
+.loan-requests{
+
+    width: 100%;
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.loan-requests::-webkit-scrollbar {
+    display: none;
+}
+
+.loan-request{
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: rgba(238, 241, 244, 0.753);
+    padding: 2vh 2vw;
+    border-radius: 1rem;
+}
+
+.loan-request p{
+    margin: 0;
+    color: rgb(74, 136, 160);
+}
+
+.loan-request p b{
+    font-weight: 500;
+    color: rgb(72, 111, 126);
+}
+
+.loan-request span{
+    margin-top: 15px;
+    display: flex;
+    gap: 30px;
+}

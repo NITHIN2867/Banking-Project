@@ -1,0 +1,78 @@
+.all-users-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 13vh;
+  padding-left: 3vw;
+  background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.all-users-page h2 {
+  margin-bottom: 3vh;
+  color: #345678;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.all-users-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.user-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(60, 120, 180, 0.10), 0 1.5px 6px rgba(60, 120, 180, 0.08);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: 1px solid #e3eaf2;
+}
+.user-card:hover,
+.user-avatar:hover,
+.user-info:hover {
+  box-shadow: 0 8px 32px rgba(60, 120, 180, 0.18);
+  transform: translateY(-2px) scale(1.02);
+  z-index: 2;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7fd7fa 0%, #345678 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 2rem;
+  box-shadow: 0 2px 8px rgba(60, 120, 180, 0.10);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.user-info p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #2a7cae;
+  letter-spacing: 0.2px;
+}
+.user-info p b {
+  font-weight: 600;
+  color: #345678;
+  margin-right: 6px;
+}
