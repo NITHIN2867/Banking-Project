@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Navbar from '../components/Navbar'
 import '../styles/deposits.css'
 import axios from 'axios'
@@ -16,35 +16,28 @@ const Deposits = () => {
 
     const [deposits, setDeposits] = useState([]);
 
-    useEffect(()=>{
-        fetchDepositsData();
-      }, [])
-    
-      const fetchDepositsData = async () => {
-        
-        try{
-            if (userid) {
-
-                await axios.get(`http://localhost:6001/api/deposits/fetch-deposits`).then(
-                  async (response) => {
+        const fetchDepositsData = useCallback(async () => {
+            try{
+                if (userid) {
+                    const response = await axios.get(`http://localhost:6001/api/deposits/fetch-deposits`);
                     console.log(response);
                     setDeposits(response.data.reverse());
-                  }
-                ).catch((err)=>{
-                  console.log(err);
-                });
-              }
-        }catch(err){
-            console.log(err);
-        }
-      }
+                }
+            }catch(err){
+                console.log(err);
+            }
+        }, [userid]);
+
+        useEffect(()=>{
+            fetchDepositsData();
+        }, [fetchDepositsData])
 
       const createNewDeposit = async () =>{
 
         const newDepositDetails = {depositName: newDepositName, customerId: userid, 
                                         customerName: username, nomineeName: newNomineeName, 
-                                        nomineeAge: newNomineeAge, duration: newDepositDuration, 
-                                        amount: newDepositAmount, createdDate: new Date()};
+                                                                                    nomineeAge: Number(newNomineeAge) || 0, duration: Number(newDepositDuration) || 0, 
+                                                                                    amount: Number(newDepositAmount) || 0, createdDate: new Date()};
         await axios.post('http://localhost:6001/api/deposits/new-deposit', newDepositDetails).then(
             async (response) =>{
                 console.log(response);
@@ -54,7 +47,12 @@ const Deposits = () => {
                 setNewNomineeAge(0);
                 setNewDepositAmount(0);
                 setNewDepositDuration(0);
-                fetchDepositsData();
+                                    if (response.data && typeof response.data.balance !== 'undefined') {
+                                        const newBal = Number(response.data.balance) || 0;
+                                        localStorage.setItem('balance', String(newBal));
+                                        window.dispatchEvent(new Event('balanceUpdated'));
+                                    }
+                                    fetchDepositsData();
             }
         ).catch((err)=>{
             console.log(err);

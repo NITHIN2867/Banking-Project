@@ -24,14 +24,9 @@ const Home = () => {
     console.log(userid);
     try{
         if (userid) {
-            await axios.get(`http://localhost:6001/api/users/user-details/${userid}`).then(
-              async (response) => {
-                setBalance(response.data.balance);
-                console.log(response);
-              }
-            ).catch((err)=>{
-              console.log(err);
-            });
+            const response = await axios.get(`http://localhost:6001/api/users/user-details/${userid}`);
+            setBalance(Number(response.data.balance) || 0);
+            console.log(response);
       
             await axios.get(`http://localhost:6001/api/transactions/transactions`).then(
               async (response) => {
@@ -49,6 +44,9 @@ const Home = () => {
 
   useEffect(() => {
     fetchUserData();
+    const onBalanceUpdated = () => fetchUserData();
+    window.addEventListener('balanceUpdated', onBalanceUpdated);
+    return () => window.removeEventListener('balanceUpdated', onBalanceUpdated);
   }, [fetchUserData])
 
   const sendMoney = async () =>{

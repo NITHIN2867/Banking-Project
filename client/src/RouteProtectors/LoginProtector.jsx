@@ -7,7 +7,7 @@ const AuthProtector =  ({ children }) => {
     if (!localStorage.getItem('userType')) {
       window.location.href = '/';
     }
-  }, [localStorage]);
+  }, []);
 
 
   return children;

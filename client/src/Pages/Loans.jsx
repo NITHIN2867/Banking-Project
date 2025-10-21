@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Navbar from '../components/Navbar'
 import '../styles/loans.css'
 import axios from 'axios';
@@ -19,26 +19,21 @@ const Loans = () => {
 
     const [loans, setLoans] = useState([]);
 
-    useEffect(()=>{
-        fetchLoansData();
-      }, [])
-    
-      const fetchLoansData = async () => {
-        try{
-            if (userid) {
-                await axios.get(`http://localhost:6001/api/loans/fetch-loans`).then(
-                  async (response) => {
-                    console.log(response);
-                    setLoans(response.data.reverse());
-                  }
-                ).catch((err)=>{
-                  console.log(err);
-                });
-              }
-        }catch(err){
-            console.log(err);
+    const fetchLoansData = useCallback(async () => {
+      try{
+        if (userid) {
+          const response = await axios.get(`http://localhost:6001/api/loans/fetch-loans`);
+          console.log(response);
+          setLoans(response.data.reverse());
         }
+      }catch(err){
+        console.log(err);
       }
+    }, [userid]);
+
+    useEffect(()=>{
+      fetchLoansData();
+    }, [fetchLoansData])
 
       const createNewLoan = async () =>{
 
